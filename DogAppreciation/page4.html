@@ -1,0 +1,171 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+	<style> table, tr, td{border:1px solid black; border-collapse: collapse; padding: 2px;} </style>
+
+    <title> Dog Appreciation </title>
+    <link href="simple.css" rel="stylesheet">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  font-family: "Apple Chancery", cursive;
+}
+body {
+    background-color: #FDDEF0;
+    }
+
+.sidenav {
+  height: 100%;
+  width: 160px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  background-color: rgb(28, 59, 58);
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  border-style: solid;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.main { 
+  margin-left: 160px;
+  font-size: 28px; 
+  padding: 0px 10px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+.navbar{
+    background-color: orange;
+    padding: 30px;
+}
+
+    </style>
+  <TITLE>RANDOM DOG PICTURES</TITLE>
+  <STYLE type="text/css">
+   BODY {text-align: center}
+  </STYLE>
+<body>
+<div class = "navbar">
+<a href="index.html">Dog Translator</a>
+<a href="page2.html">Interesting Dog Facts</a>
+<a href="page3.html">Different Types of Dogs</a>
+</div>
+<h1>Click Below To See Funny and Adorable Dog Pictures</h1>
+<input type= "button" id="btn_3" value="Click to see random Dog Pictures!!!!!!">
+<div id='dogPicture'></div>
+<div id = "oranges"></div>
+<br>
+
+  <br>
+</body>
+<!--<form id = radio_stuff action="/action_page.php">
+  <p>Please select your favorite Activity out of the 3:</p>
+  <input type="radio" id="a" name="fav_language" value="a">
+  <label for="a">Walking my dog</label><br>
+  <input type="radio" id="b" name="fav_language" value="b">
+  <label for="b">Playing Fetch with my dog</label><br>
+  <input type="radio" id="c" name="fav_language" value="c">
+  <label for="c">Sleeping with my dog</label>
+</form>
+<br>
+<input type="button" id="btn_1" class="btn btn-primary" value="Submit">-->
+
+<script>
+
+/*function error_trapping (){
+
+  let a = $("#radio_stuff").val();
+
+  let condition = "";
+
+  if(a !== ""){
+    condition = true;
+  } else {
+    condition = false;
+  }
+
+return condition;
+}
+function error_trapping2 (){
+
+let b = $("#radio_stuff").val();
+
+let condition = "";
+
+if(b !== ""){
+  condition = true;
+} else {
+  condition = false;
+}
+
+return condition;
+}
+function error_trapping3 (){
+
+let c = $("#radio_stuff").val();
+
+let condition = "";
+
+if(c !== ""){
+  condition = true;
+} else {
+  condition = false;
+}
+
+return condition;
+}*/
+
+  $('#btn_3').click(function(){
+    console.log('testing')
+    $.getJSON("https://random.dog/woof.json", function(data){
+      console.log('API call')
+      console.log(data['url'])
+      var dog= data['url']
+      $('#dogPicture').html('<img src= ' + dog + '>')
+  
+    });
+  }); 
+ 
+  /*$('#btn_1').click(function(){
+  
+    let error1 = error_trapping();
+    let error2 = error_trapping2();
+    let error3 = error_trapping3();
+
+    if(error1 == true || error2 == true || error3 == true){
+
+    let message = "Thank you for your response."
+    console.log(message);
+  
+} else {
+  console.log("Bad");
+}
+
+});*/
+
+
+</script>
+</html>
